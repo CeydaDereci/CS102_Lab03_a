@@ -2,6 +2,12 @@ public class Circle extends Shape{
 
     int radius;
 
+    public Circle(int x, int y,int radius){
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+
     @Override
     double getArea() {
         double area;
@@ -14,5 +20,12 @@ public class Circle extends Shape{
         double perimeter;
         perimeter = 2 * Math.PI * radius;
         return perimeter;
+    }
+
+    @Override
+    public boolean contains(int x, int y) {
+        double distance;
+        distance = (x - this.x) * (x - this.x)  + (x - this.x) * (x - this.x);
+        return radius * radius <= distance;
     }
 }

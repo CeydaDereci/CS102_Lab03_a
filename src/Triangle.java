@@ -4,6 +4,14 @@ public class Triangle extends Shape{
     int b;
     int c;
 
+    public Triangle(int x, int y, int a, int b, int c){
+        this.x = x;
+        this.y = y;
+        this.a = a;
+        this.b = b;
+        this.c = c;
+
+    }
 
     @Override
     double getArea() {

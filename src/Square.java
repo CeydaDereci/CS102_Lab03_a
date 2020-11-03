@@ -1,14 +1,7 @@
 public class Square extends Rectangle{
 
-    int side;
-
-    @Override
-    double getPerimeter() {
-        return side * 4;
+    public Square(int x, int y, int side) {
+        super(x,y,side ,side);
     }
 
-    @Override
-    double getArea() {
-        return super.getArea();
-    }
 }
