@@ -28,4 +28,15 @@ public class Triangle extends Shape{
         perimeter = a + b + c;
         return perimeter;
     }
+
+    @Override
+    public boolean contains(int x, int y) {
+        int longest = Math.max(a, Math.max(b, c));
+        int distanceX = Math.abs(getX() - x);
+        int distanceY = Math.abs(getY() - y);
+        if (Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2)) <= longest) {
+            return true;
+        }
+        return false;
+    }
 }

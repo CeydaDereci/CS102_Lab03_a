@@ -1,34 +1,31 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 public class ShapeContainer {
 
-    private Shape[] shapes;
+    private ArrayList<Shape> shapes;
 
     public ShapeContainer(){
-        shapes = new Shape[0];
+        shapes = new ArrayList<Shape>();
     }
 
     public void add(Shape s) {
-        boolean hasSpace;
-        hasSpace = false;
-        for (int i = 0; i < shapes.length; i++) {
-            if(shapes[i] == null) {
-                shapes[i] = s;
-                hasSpace = true;
-            }
-        }
-        if(!hasSpace) {
-            shapes = Arrays.copyOf(shapes, shapes.length + 1);
-            shapes[shapes.length - 1] = s;
-        }
+       shapes.add(s);
     }
 
-    public double getArea(int i){
-        return shapes[i].getArea();
+    public double getArea(){
+        double area;
+        area = 0;
+        for(Shape shape: shapes)
+            area += shape.getArea();
+        return area;
 
     }
 
-    public double getPerimeter(int i){
-        return shapes[i].getPerimeter();
+    public double getPerimeter(){
+        double perimeter;
+        perimeter = 0;
+        for(Shape shape: shapes)
+            perimeter += shape.getPerimeter();
+        return perimeter;
     }
 
     public Shape getFirstShape(int x, int y) {
@@ -41,11 +38,9 @@ public class ShapeContainer {
         return null;
     }
     public void removeSelectedShapes(){
-        for(Shape shape : shapes)
-            if(shape.getSelected())
-                shape.setSelected(false);
-    }
+        shapes.removeIf(Shape::getSelected);
 
+    }
 
     public String toString(){
         StringBuilder str;
@@ -60,8 +55,11 @@ public class ShapeContainer {
             str.append("\nSelected: ");
             str.append(shape.getSelected());
             str.append("\n\n");
-
         }
+        str.append("Total Perimeter: ");
+        str.append(getPerimeter());
+        str.append("Total Area: ");
+        str.append(getArea());
         return str.toString();
     }
 
