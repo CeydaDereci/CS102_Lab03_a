@@ -25,7 +25,7 @@ public class Circle extends Shape{
     @Override
     public boolean contains(int x, int y) {
         double distance;
-        distance = (x - this.x) * (x - this.x)  + (x - this.x) * (x - this.x);
+        distance = (x - this.x) * (x - this.x)  + (y - this.y) * (y - this.y);
         return radius * radius <= distance;
     }
 }

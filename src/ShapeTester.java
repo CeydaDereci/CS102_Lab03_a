@@ -73,6 +73,7 @@ public class ShapeTester {
                     int x;
                     int y;
 
+
                     System.out.println("Enter location: ");
                     x = scan.nextInt();
                     y = scan.nextInt();
@@ -82,8 +83,12 @@ public class ShapeTester {
                     b = scan.nextInt();
                     c = scan.nextInt();
 
-                    Shape triangle = new Triangle(x,y,a,b,c);
-                    s.add(triangle);
+                    if(((a + b) > c) && ((a + c) > b) && ((b + c) > a)){
+                        Shape triangle = new Triangle(x, y, a, b, c);
+                        s.add(triangle);
+                    }
+                    else
+                        System.out.println("Invalid Triangle!");
                 }
                 System.out.println("Shape added to the shape container. ");
             }
